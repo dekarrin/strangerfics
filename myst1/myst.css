@@ -1,0 +1,110 @@
+body {
+	background: url("../background.jpg");
+	font-family: "Bookman Old Style";
+}
+
+h1 { 
+	font-family: "Lucida Handwriting";
+	font-style: italic;
+	color: gray;
+	font-size: 40pt;
+	text-align: center;
+}
+
+h2 {
+	font-family: "Lucida Handwriting";
+	font-style: italic;
+	color: gray;
+	font-size: 25pt;
+	text-align: center;
+	text-decoration: none;
+}
+
+p.selector {
+	text-align: center;
+	font-family: Verdana;
+}
+
+p.regnote {
+	text-indent: 0cm;
+	background: #FFFFAC;
+	font-family: "Lucida Handwriting";
+	font-style: italic;
+	text-align: left;
+	/* deka: removed margin-left: 0cm and margin-right: 6cm in favor of width setting */
+	width: 76%; /* deka: added */
+	padding: 1px 3px; /* deka: added */
+	max-width: 480px; /* deka: added */
+	min-width: 160px; /* deka: added */
+	/* deka: removed float: left; it didn't seem to be doing anyfin without display
+	change. TODO: look into original render on old engines (IE). */
+}
+
+p.leftnote {
+	text-indent: 0cm;
+	font-family: "Lucida Handwriting";
+	font-style: italic;
+	text-align: right;
+	margin-left: 1em;
+	margin-right: 25em;
+	background: #FFFFAC;
+	float: left;
+}
+
+strong.leftnote {
+	background: #FFFFAC;
+}
+
+em.leftnote {
+	background: #FFFFAC;
+}
+
+p.rightnote {
+	text-indent: 0cm;
+	font-family: "Lucida Handwriting";
+	font-style: italic;
+	text-align: right;
+	margin-left: 1cm;
+	margin-right:6cm;
+	background: #FFFFAC;
+	float: left;
+}
+
+strong.rightnote {
+	background: #FFFFAC;
+}
+
+em.rightnote {
+	background: #FFFFAC;
+}
+
+p {
+	text-indent: 1cm;
+	margin-top: 0;
+}
+
+p.nav {
+	text-indent: 0cm;
+	margin-top: auto;
+	margin-bottom: 2ex;
+	font-size: small;
+}
+
+table.chart {
+	background: #FFFFAC;
+	border: thin solid #FFFFAC;
+	font-family: "Lucida Handwriting";
+	font-style: italic;
+}
+
+tr {
+	border: thin solid #FFFFAC;
+}
+
+td {
+	border: thin solid #FFFFAC;
+}
+
+th {
+	text-decoration: underline;
+}

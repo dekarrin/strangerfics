@@ -1,0 +1,66 @@
+/* This file has been modified for formatting; content remains the same except where otherwise specified. -deka */
+
+body {
+	background: url("background.jpg");
+}
+
+li {
+	font-family: "Arial";
+}
+
+h1 {
+	font-family: "Lucida Handwriting";
+	font-style: italic;
+	color: gray;
+	font-size: 40pt;
+	text-align: center;
+}
+
+h2 {
+	font-family: "Lucida Handwriting";
+	font-style: italic;
+	color: gray;
+	font-size: 16pt;
+	margins: 100%;
+}
+
+h3 {
+	font-family: "Lucida Handwriting";
+	font-style: italic;
+	color: gray;
+	font-size: 16pt;
+}
+
+p.author
+{
+	font-family: "Lucida Handwriting";
+	font-style: italic;
+	color: gray;
+	font-size: 24pt;
+	text-align: center;
+}
+
+a:link {
+	font-weight: bold;
+	color: #0000FF;
+	text-decoration: underline;
+}
+
+a:visited
+{
+	font-weight: medium;
+	text-decoration: none;
+	color: #FF0000;
+}
+
+p.selector {
+	text-align: center;
+	font-family: "Verdana";
+}
+
+p {
+	text-indent: 1cm;
+	
+	/* deka: updated font-family from simple "Bookman Old Style" to include set of fallbacks */
+	font-family: "Bookman Old Style", Bookman, "Goudy Old Style", "Calisto MT", Garamond, "Hoefler Text", "Bitstream Charter", Georgia, serif;
+}

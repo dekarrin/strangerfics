@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>The Myst Journals - Divergences</title>
+		<link rel="stylesheet" href="./titlepg.css" type="text/css">
+		<link rel="stylesheet" href="./common.css" type="text/css">
+	</head>
+	<body>
+		<h1>Divergences</h1>
+		
+		<h2>Why Are There Changes?</h2>
+		<p>
+			This page lists intentional and unintentional changes from the original source
+			made by Deka Jello in the process of updating these pages for reading in modern
+			browsers. Some modifications were made with the intent of preserving the
+			original as closely as possible. Typesetting is modified only when needed to be
+			updated for modern standards. Non-presentation code was modified anywhere it
+			does not comply with HTML5 standards. Spelling typos and other errors in the
+			original work's text are modified only where failing to do so significantly
+			impacts the readability, and will be called out on this page.
+		</p>
+		
+		<h2>Known Issues (Unintentional Changes)</h2>
+		<ul>
+			<li>
+				The original shows the first title at the top of the page with no margin.
+				Swapping to use <code>&lt;!DOCTYPE html&gt;</code> appears to have caused this.
+				Likely can be fixed with proper margin setting on the first H1 element.
+			</li>
+		</ul>
+		
+		<h2>Intentional Changes</h2>
+		<ul>
+			<li>
+				Any section marked "Restoration Note" is newly-added and gives information on
+				archived versions selected and shown in the restoration and other relevant
+				notes from the process of updating this site.
+			</li>
+			<li>
+				All pages have a footer at the bottom noting that the formatting has been updated.
+			</li>
+			<li>
+				All pages now have a <code>&lt;!DOCTYPE html&gt;</code> declaration at the
+				top, making them render in HTML5 mode.
+			</li>
+			<li>
+				All pages have a <code>lang</code> attribute added to the HTML element.
+			</li>
+			<li>
+				All attributes on tags were modified to have quoted values.
+			</li>
+			<li>
+				The <code>&lt;meta&gt;</code> tags for keywords were changed from using the
+				<code>http-equiv</code> attribute to the <code>name</code> attribute.
+			</li>
+			<li>
+				<code>rev</code> attributes on <code>&lt;meta&gt;</code> tags were replaced with
+				approprate <code>rel</code> values.
+			</li>
+			<li>
+				Mismatched <code>&lt;p&gt;</code> tags were made to match. While not strictly
+				required to match in HTML5, it helped readability of the code when modifying
+				other content for formatting.
+			</li>
+			<li>
+				All main body paragraph content was standardized to have the same presentational
+				indent and font. It appears the original had some errors causing the indenting
+				and formatting of body text to be inconsistent. This change was applied only in
+				cases where it wasn't explicitly obvious that the original text was intended to
+				look slightly different.
+			</li>
+			<li>
+				Double-space after sentences was updated to single space to match current style
+				guides as of 2023.
+			</li>
+			<li>
+				Spaces at ends of lines of runs of text were removed.
+			</li>
+			<li>
+				A new CSS file called <code>common.css</code> was added for formatting added sections
+				such as resotaration notes and the footer.
+			</li>
+			<li>
+				Styling present in attributes was removed and added to <code>common.css</code> if
+				required to preserve the original formatting. Not all styling required this; many
+				were simply redundant and were already accounted for in the original stylesheets.
+			</li>
+			<li>
+				All code was indented for readability. Some code was placed on a new line from its
+				original open tag in the process of doing this. Generally, body text is hard-wrapped
+				in source at 100 columns, with a tab considered to take up 4 spaces.
+			</li>
+			<li>
+				Added <code>class="wayback"</code> to links that were modified to go through the
+				Wayback Machine.
+			</li>
+			<li>
+				Added <code>class="defunct"</code> to links that don't go through the Wayback Machine
+				and that do not appear to be live.
+			</li>
+			<li>
+				Font specifications were preserved but were given web-safe fallbacks where they did
+				not originally have them.
+			</li>
+			<li>
+				The invalid <code>&lt;tc&gt;</code> tag was replaced with the <code>&lt;td&gt;</code> tag.
+			</li>
+			<li>
+				Corrected "Lucidia Handwriting" to the correct "Lucida Handwriting".
+			</li>
+			<li>
+				Styling of notes was modified to remove the unworking float-based layout and to use
+				a percentage width instead, along with max and min widths. A small amount of padding
+				was also added so the text does not go all the way to the edge of its box.
+			</li>
+		</ul>
+
+		<hr>
+		<a href="index.html">Title Page</a>
+		<hr>
+		<div class="restorefooter">
+			<p>Restored and updated for modern rendering by Deka Jello.
+			See the <a href="divergences.html">divergences page</a> for known differences and alterations.</p>
+		</div>
+	</body>
+</html>

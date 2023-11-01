@@ -5,6 +5,8 @@
 
 import argparse
 import sys
+import re
+import textwrap
 
 from bs4 import BeautifulSoup
 
@@ -17,11 +19,26 @@ def get_cli_args():
     infile_help = 'The name of the myst journals file to read. If not given, stdin will be used.'
     p.add_argument('input_file', nargs='?', type=argparse.FileType('r'), default=sys.stdin, help=infile_help)
     
+    outfile_help = 'The output file to write to. If not given, stdout will be used.'
+    p.add_argument('-o', '--output_file', nargs='?', type=argparse.FileType('w'), default=sys.stdout, help=outfile_help)
+    
     start_help = 'The line number of the first line of input to read from, inclusive. 1-indexed.'
     p.add_argument('-s', '--start', type=int, default=1, help=start_help)
     
     end_help = 'The line number of the last line of input to read to, inclusive. 1-indexed. A value of 0 or lower explicitly indicates to go the last line in input.'
     p.add_argument('-e', '--end', type=int, default=0, help=end_help)
+    
+    indent_help = 'The number of tab indents to apply to paragraph body text. Open and close <p> tags will be at this level -1, minimum 0.'
+    p.add_argument('-I', '--indent', type=int, default=3, help=indent_help)
+    
+    tabseq_help = 'The sequence to use for a single indent. Char-length of the tab is not calculated from this but with --tab-width.'
+    p.add_argument('-T', '--tab-seq', type=str, default='\t', help=tabseq_help)
+    
+    tablen_help = 'The character length to assume for a single indent.'
+    p.add_argument('-L', '--tab-len', type=int, default=4, help=tablen_help)
+    
+    width_help = 'The text column for body text to wrap at.'
+    p.add_argument('-W', '--width', type=int, default=100, help=width_help)
     
     args = p.parse_args()
     return args
@@ -44,12 +61,28 @@ def main():
     
     soup = BeautifulSoup(html_doc, 'html5lib')
     
+    body_tab_count = max(args.indent, 0)
+    p_tab_count = max(args.indent-1, 0)
+    body_tabs = args.tab_seq * body_tab_count
+    p_tabs = args.tab_seq * p_tab_count
+    
+    wrapped_tab_space = max(args.tab_len, 1) * body_tab_count
+    body_text_wrap_width = args.width - wrapped_tab_space
+    
     pno = 0
     for p in soup.find_all('p'):
         pno += 1
-        print("P{:d}: {:s}".format(pno, p.decode_contents()))
-    
-    
+        body_text = p.decode_contents()
+        collapsed = re.sub(r'\s+', r' ', body_text.strip())
+        wrapped = textwrap.wrap(collapsed, body_text_wrap_width)
+        print(p_tabs, end='', file=args.output_file)
+        print('<p>', file=args.output_file)
+        for ln in wrapped:
+            print(body_tabs, end='', file=args.output_file)
+            print(ln, file=args.output_file)
+        print(p_tabs, end='', file=args.output_file)
+        print('</p>', file=args.output_file)
+    args.output_file.close()
 
 if __name__ == "__main__":
     try:

@@ -60,29 +60,40 @@ def main():
     f.close()
     
     soup = BeautifulSoup(html_doc, 'html5lib')
+    tags = soup.body.findChildren(recursive=False)
     
-    body_tab_count = max(args.indent, 0)
-    p_tab_count = max(args.indent-1, 0)
-    body_tabs = args.tab_seq * body_tab_count
-    p_tabs = args.tab_seq * p_tab_count
+    #format_p_text(args.width, args.indent, args.tab_seq, args.tab_len, tags, args.output_file)
+    args.output_file.close()
     
-    wrapped_tab_space = max(args.tab_len, 1) * body_tab_count
-    body_text_wrap_width = args.width - wrapped_tab_space
+def tag_with_attrs(t):
     
-    pno = 0
-    for p in soup.find_all('p'):
-        pno += 1
-        body_text = p.decode_contents()
+    
+def format_p_text(wrap_width, level, tab_seq, tab_len, tags, outfile):
+    body_tab_count = max(level, 0)
+    p_tab_count = max(level-1, 0)
+    body_tabs = tab_seq * body_tab_count
+    p_tabs = tab_seq * p_tab_count
+    
+    wrapped_tab_space = max(tab_len, 1) * body_tab_count
+    body_text_wrap_width = wrap_width - wrapped_tab_space
+    
+    for t in tags:
+        if t.name == 'blockquote':
+            print(t.prettify(), file=outfile)
+        body_text = t.decode_contents()
         collapsed = re.sub(r'\s+', r' ', body_text.strip())
         wrapped = textwrap.wrap(collapsed, body_text_wrap_width)
-        print(p_tabs, end='', file=args.output_file)
-        print('<p>', file=args.output_file)
+        #print(p_tabs, end='', file=outfile)
+        #print('<' + t.name.lower() + '>', file=outfile)
         for ln in wrapped:
-            print(body_tabs, end='', file=args.output_file)
-            print(ln, file=args.output_file)
-        print(p_tabs, end='', file=args.output_file)
-        print('</p>', file=args.output_file)
-    args.output_file.close()
+            pass
+            #print(body_tabs, end='', file=outfile)
+            #print(ln, file=outfile)
+        #print(p_tabs, end='', file=outfile)
+        #print('</' + t.name.lower() + '>', file=outfile)
+    outfile.flush()
+    
+    
 
 if __name__ == "__main__":
     try:

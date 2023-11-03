@@ -8,6 +8,7 @@ import sys
 import re
 import textwrap
 
+from typing import Tuple
 from bs4 import BeautifulSoup
 
 def get_cli_args():
@@ -62,38 +63,71 @@ def main():
     soup = BeautifulSoup(html_doc, 'html5lib')
     tags = soup.body.findChildren(recursive=False)
     
-    #format_p_text(args.width, args.indent, args.tab_seq, args.tab_len, tags, args.output_file)
+    format_text(args.width, args.indent, args.tab_seq, args.tab_len, tags, args.output_file)
     args.output_file.close()
     
-def tag_with_attrs(t):
     
+def format_tag_open(t) -> Tuple[str, bool]:
+    """Return the string itself along with whether a close tag is needed."""
+    need_close = True
+    tstr = '<' + t.name.lower()
     
-def format_p_text(wrap_width, level, tab_seq, tab_len, tags, outfile):
+    for at in t.attrs:
+        at_val = t.attrs[at]
+        if isinstance(at_val, list):
+            at_val = ' '.join(at_val)
+        tstr += ' ' + at + '="' + at_val + '"'
+    
+    if t.isSelfClosing:
+        tstr += '/'
+        need_close = False
+    
+    tstr += '>'
+    return (tstr, need_close)
+        
+def format_tag_close(t) -> str:
+    return '</' + t.name.lower() + '>'
+    
+def format_text(wrap_width, level, tab_seq, tab_len, tags, outfile):
     body_tab_count = max(level, 0)
-    p_tab_count = max(level-1, 0)
+    tag_tab_count = max(level-1, 0)
     body_tabs = tab_seq * body_tab_count
-    p_tabs = tab_seq * p_tab_count
+    tag_tabs = tab_seq * tag_tab_count
     
     wrapped_tab_space = max(tab_len, 1) * body_tab_count
-    body_text_wrap_width = wrap_width - wrapped_tab_space
+    body_text_wrap_width = max(wrap_width - wrapped_tab_space, 3)
     
     for t in tags:
+        if t.isSelfClosing:
+            tag_str, _ = format_tag_open(t)
+            print(tag_tabs, end='', file=outfile)
+            print(tag_open, file=outfile)
+            continue
+        
+        tag_open, _ = format_tag_open(t)
+        tag_close = format_tag_close(t)
+        print(tag_tabs, end='', file=outfile)
+        print(tag_open, file=outfile)
+            
         if t.name == 'blockquote':
-            print(t.prettify(), file=outfile)
-        body_text = t.decode_contents()
-        collapsed = re.sub(r'\s+', r' ', body_text.strip())
-        wrapped = textwrap.wrap(collapsed, body_text_wrap_width)
-        #print(p_tabs, end='', file=outfile)
-        #print('<' + t.name.lower() + '>', file=outfile)
-        for ln in wrapped:
-            pass
-            #print(body_tabs, end='', file=outfile)
-            #print(ln, file=outfile)
-        #print(p_tabs, end='', file=outfile)
-        #print('</' + t.name.lower() + '>', file=outfile)
+            # these elements can themselves contain p tags in myst journals;
+            # recurse with tab level incremented.
+            print(len(t.contents))
+            inner_tags = t.findChildren(recursive=False)
+            format_text(wrap_width, body_tab_count+1, tab_seq, tab_len, inner_tags, outfile)
+        else:
+            # otherwise, assume normal text
+            body_text = t.decode_contents()
+            collapsed = re.sub(r'\s+', r' ', body_text.strip())
+            wrapped = textwrap.wrap(collapsed, body_text_wrap_width)
+            for ln in wrapped:
+                print(body_tabs, end='', file=outfile)
+                print(ln, file=outfile)
+        
+        print(tag_tabs, end='', file=outfile)
+        print(tag_close, file=outfile)
+    
     outfile.flush()
-    
-    
 
 if __name__ == "__main__":
     try:

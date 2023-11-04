@@ -9,7 +9,8 @@ import re
 import textwrap
 
 from typing import Tuple
-from bs4 import BeautifulSoup
+
+import bs4
 
 def get_cli_args():
     p = argparse.ArgumentParser(
@@ -60,16 +61,14 @@ def main():
     
     f.close()
     
-    soup = BeautifulSoup(html_doc, 'html5lib')
-    tags = soup.body.findChildren(recursive=False)
+    soup = bs4.BeautifulSoup(html_doc, 'html5lib')
+    nodes = soup.body.contents
     
-    format_text(args.width, args.indent, args.tab_seq, args.tab_len, tags, args.output_file)
+    format_text(args.width, args.indent, args.tab_seq, args.tab_len, nodes, args.output_file)
     args.output_file.close()
     
     
-def format_tag_open(t) -> Tuple[str, bool]:
-    """Return the string itself along with whether a close tag is needed."""
-    need_close = True
+def format_tag_open(t):
     tstr = '<' + t.name.lower()
     
     for at in t.attrs:
@@ -80,15 +79,14 @@ def format_tag_open(t) -> Tuple[str, bool]:
     
     if t.isSelfClosing:
         tstr += '/'
-        need_close = False
     
     tstr += '>'
-    return (tstr, need_close)
+    return tstr
         
-def format_tag_close(t) -> str:
+def format_tag_close(t):
     return '</' + t.name.lower() + '>'
     
-def format_text(wrap_width, level, tab_seq, tab_len, tags, outfile):
+def format_text(wrap_width, level, tab_seq, tab_len, nodes, outfile):
     body_tab_count = max(level, 0)
     tag_tab_count = max(level-1, 0)
     body_tabs = tab_seq * body_tab_count
@@ -97,29 +95,36 @@ def format_text(wrap_width, level, tab_seq, tab_len, tags, outfile):
     wrapped_tab_space = max(tab_len, 1) * body_tab_count
     body_text_wrap_width = max(wrap_width - wrapped_tab_space, 3)
     
-    for t in tags:
-        if t.isSelfClosing:
-            tag_str, _ = format_tag_open(t)
+    for elem in nodes:
+        if isinstance(elem, bs4.NavigableString):
+            # it is a bare string, probably it should not be so assume it should have been within
+            # <p> tags.
+            minisoup = bs4.BeautifulSoup('<p>' + str(elem.string) + '</p>', 'html5lib')
+            elem = minisoup.body.p
+        
+        # from this point, elem is guaranteed to be a Tag
+        tag_open = format_tag_open(elem)
+            
+        if elem.isSelfClosing:
             print(tag_tabs, end='', file=outfile)
             print(tag_open, file=outfile)
             continue
         
-        tag_open, _ = format_tag_open(t)
-        tag_close = format_tag_close(t)
+        # from this point, elem is guaranteed to be a non-self closing Tag
+        tag_close = format_tag_close(elem)
         print(tag_tabs, end='', file=outfile)
         print(tag_open, file=outfile)
             
-        if t.name == 'blockquote':
+        if elem.name == 'blockquote':
             # these elements can themselves contain p tags in myst journals;
             # recurse with tab level incremented.
-            print(len(t.contents))
-            inner_tags = t.findChildren(recursive=False)
-            format_text(wrap_width, body_tab_count+1, tab_seq, tab_len, inner_tags, outfile)
+            inner_elems = elem.contents
+            format_text(wrap_width, body_tab_count+1, tab_seq, tab_len, inner_elems, outfile)
         else:
             # otherwise, assume normal text
-            body_text = t.decode_contents()
+            body_text = elem.decode_contents()
             collapsed = re.sub(r'\s+', r' ', body_text.strip())
-            wrapped = textwrap.wrap(collapsed, body_text_wrap_width)
+            wrapped = textwrap.wrap(collapsed, body_text_wrap_width, break_on_hyphens=False)
             for ln in wrapped:
                 print(body_tabs, end='', file=outfile)
                 print(ln, file=outfile)

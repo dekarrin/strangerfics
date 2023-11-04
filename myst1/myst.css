@@ -20,6 +20,11 @@ h2 {
 	text-decoration: none;
 }
 
+/* deka: added this to make blockquotes be indented more like they were in old versions of IE. */
+blockquote {
+	margin: 1.0cm 1.5cm;
+}
+
 p.selector {
 	text-align: center;
 	font-family: Verdana;
@@ -33,11 +38,11 @@ p.regnote {
 	text-align: left;
 	/* deka: removed margin-left: 0cm and margin-right: 6cm in favor of width setting */
 	width: 76%; /* deka: added */
-	padding: 1px 3px; /* deka: added */
+	padding: 1px 4px; /* deka: added */
 	max-width: 480px; /* deka: added */
 	min-width: 160px; /* deka: added */
 	/* deka: removed float: left; it didn't seem to be doing anyfin without display
-	change. TODO: look into original render on old engines (IE). */
+	change. TODO: look into original render on old engines (IE), see https://oldweb.today for renders. */
 }
 
 p.leftnote {

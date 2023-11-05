@@ -1,6 +1,9 @@
 body {
 	background: url("../background.jpg");
 	font-family: "Bookman Old Style";
+	max-width: 1000px; /* deka: added */
+	margin: 0 auto; /* deka: added */
+	padding: 0 8px; /* deka: added */
 }
 
 h1 { 
@@ -36,13 +39,16 @@ p.regnote {
 	font-family: "Lucida Handwriting";
 	font-style: italic;
 	text-align: left;
+	
 	/* deka: removed margin-left: 0cm and margin-right: 6cm in favor of width setting */
 	width: 76%; /* deka: added */
-	padding: 1px 4px; /* deka: added */
 	max-width: 480px; /* deka: added */
 	min-width: 160px; /* deka: added */
+	
 	/* deka: removed float: left; it didn't seem to be doing anyfin without display
 	change. TODO: look into original render on old engines (IE), see https://oldweb.today for renders. */
+	
+	padding: 1px 4px; /* deka: added */
 }
 
 p.leftnote {
@@ -50,10 +56,18 @@ p.leftnote {
 	font-family: "Lucida Handwriting";
 	font-style: italic;
 	text-align: right;
-	margin-left: 1em;
-	margin-right: 25em;
 	background: #FFFFAC;
 	float: left;
+	margin-left: 1em;
+	margin-right: 1%; /* deka: updated */
+	
+	/* deka: removed margin-right: 25em in favor of width setting */
+	width: 25%; /* deka: added */
+	max-width: 170px; /* deka: added */ 
+	min-width: 110px; /* deka: added */
+	
+	padding: 1px 1px 1px 4px; /* deka: added */
+	overflow-x: hidden; /* deka: added */
 }
 
 strong.leftnote {

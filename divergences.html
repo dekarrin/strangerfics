@@ -10,22 +10,22 @@
 		
 		<h2>Why Are There Changes?</h2>
 		<p>
-			This page lists intentional and unintentional changes from the original source
-			made by Deka Jello in the process of updating these pages for reading in modern
-			browsers. Some modifications were made with the intent of preserving the
-			original as closely as possible. Typesetting is modified only when needed to be
-			updated for modern standards. Non-presentation code was modified anywhere it
-			does not comply with HTML5 standards. Spelling typos and other errors in the
-			original work's text are modified only where failing to do so significantly
-			impacts the readability, and will be called out on this page.
+			This page lists intentional and unintentional changes from the original source made by
+			Deka Jello in the process of updating these pages for reading in modern browsers. Some
+			modifications were made with the intent of preserving the original as closely as
+			possible. Typesetting is modified only when needed to be updated for modern standards.
+			Non-presentation code was modified anywhere it does not comply with HTML5 standards.
+			Spelling typos and other errors in the original work's text are modified only where
+			failing to do so significantly impacts the readability, and will be called out on this
+			page.
 		</p>
 		
 		<h2>Known Issues (Unintentional Changes)</h2>
 		<ul>
 			<li>
-				The original shows the first title at the top of the page with no margin.
-				Swapping to use <code>&lt;!DOCTYPE html&gt;</code> appears to have caused this.
-				Likely can be fixed with proper margin setting on the first H1 element.
+				The original shows the first title at the top of the page with no margin. Swapping
+				to use <code>&lt;!DOCTYPE html&gt;</code> appears to have caused this. Likely can be
+				fixed with proper margin setting on the first H1 element.
 			</li>
 		</ul>
 		
@@ -33,15 +33,15 @@
 		<ul>
 			<li>
 				Any section marked "Restoration Note" is newly-added and gives information on
-				archived versions selected and shown in the restoration and other relevant
-				notes from the process of updating this site.
+				archived versions selected and shown in the restoration and other relevant notes
+				from the process of updating this site.
 			</li>
 			<li>
 				All pages have a footer at the bottom noting that the formatting has been updated.
 			</li>
 			<li>
-				All pages now have a <code>&lt;!DOCTYPE html&gt;</code> declaration at the
-				top, making them render in HTML5 mode.
+				All pages now have a <code>&lt;!DOCTYPE html&gt;</code> declaration at the top,
+				making them render in HTML5 mode.
 			</li>
 			<li>
 				All pages have a <code>lang</code> attribute added to the HTML element.
@@ -59,15 +59,15 @@
 			</li>
 			<li>
 				Mismatched <code>&lt;p&gt;</code> tags were made to match. While not strictly
-				required to match in HTML5, it helped readability of the code when modifying
-				other content for formatting.
+				required to match in HTML5, it helped readability of the code when modifying other
+				content for formatting.
 			</li>
 			<li>
 				All main body paragraph content was standardized to have the same presentational
-				indent and font. It appears the original had some errors causing the indenting
-				and formatting of body text to be inconsistent. This change was applied only in
-				cases where it wasn't explicitly obvious that the original text was intended to
-				look slightly different.
+				indent and font. It appears the original had some errors causing the indenting and
+				formatting of body text to be inconsistent. This change was applied only in cases
+				where it wasn't explicitly obvious that the original text was intended to look
+				slightly different.
 			</li>
 			<li>
 				Double-space after sentences was updated to single space to match current style
@@ -77,8 +77,8 @@
 				Spaces at ends of lines of runs of text were removed.
 			</li>
 			<li>
-				A new CSS file called <code>common.css</code> was added for formatting added sections
-				such as resotaration notes and the footer.
+				A new CSS file called <code>common.css</code> was added for formatting added
+				sections such as resotaration notes and the footer.
 			</li>
 			<li>
 				Styling present in attributes was removed and added to <code>common.css</code> if
@@ -95,28 +95,40 @@
 				Wayback Machine.
 			</li>
 			<li>
-				Added <code>class="defunct"</code> to links that don't go through the Wayback Machine
-				and that do not appear to be live.
+				Added <code>class="defunct"</code> to links that don't go through the Wayback
+				Machine and that do not appear to be live.
 			</li>
 			<li>
 				Font specifications were preserved but were given web-safe fallbacks where they did
 				not originally have them.
 			</li>
 			<li>
-				The invalid <code>&lt;tc&gt;</code> tag was replaced with the <code>&lt;td&gt;</code> tag.
+				The invalid <code>&lt;tc&gt;</code> tag was replaced with the
+				<code>&lt;td&gt;</code> tag.
 			</li>
 			<li>
 				Corrected "Lucidia Handwriting" to the correct "Lucida Handwriting".
 			</li>
 			<li>
-				Styling of notes was modified to remove the unworking float-based layout and to use
-				a percentage width instead, along with max and min widths. A small amount of padding
-				was also added so the text does not go all the way to the edge of its box.
+				Styling of centered notes was modified to remove the unworking float-based layout
+				and to use a percentage width instead, along with max and min widths. A small amount
+				of padding was also added so the text does not go all the way to the edge of its
+				box.
+			</li>
+			<li>
+				Styling of the left-half of the torn Marker Switch clue was updated to make main
+				body text float closer to the note and to make the note text look cutoff on the torn
+				right side. Similar to the centered notes, padding was added, though slightly
+				differently to make text flow off the right side.
 			</li>
 			<li>
 				Styling of <code>&lt;blockquote&gt;</code> was modified to add margins to the sides,
 				tops, and bottoms, so it appears offset from text as it would have looked in older
 				browsers.
+			</li>
+			<li>
+				Updated styling of <code>&lt;body&gt;</code> to have max width of 1000px and be
+				centered on the page. Also removed its vertical margins.
 			</li>
 		</ul>
 

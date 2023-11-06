@@ -114,6 +114,9 @@ table.chart {
 	border: thin solid #FFFFAC;
 	font-family: "Lucida Handwriting";
 	font-style: italic;
+	margin-left: auto; /* deka: added */
+	margin-right: auto; /* deka: added */
+	border-spacing: 8px 2px; /* deka: added */
 }
 
 tr {

@@ -109,14 +109,29 @@ p.nav {
 	font-size: small;
 }
 
+/* deka: added entire .center-margins attributes */
+.center-margins {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.center-text {
+	text-align: center;
+}
+
 table.chart {
 	background: #FFFFAC;
 	border: thin solid #FFFFAC;
 	font-family: "Lucida Handwriting";
 	font-style: italic;
-	margin-left: auto; /* deka: added */
-	margin-right: auto; /* deka: added */
 	border-spacing: 8px 2px; /* deka: added */
+	margin-bottom: 0.8em; /* deka: added */
+}
+
+.left-table {
+	text-align: left;
+	float: left;
+	margin-right: 1em;
 }
 
 tr {

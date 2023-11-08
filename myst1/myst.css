@@ -82,11 +82,19 @@ p.rightnote {
 	text-indent: 0cm;
 	font-family: "Lucida Handwriting";
 	font-style: italic;
-	text-align: right;
-	margin-left: 1cm;
-	margin-right:6cm;
+	text-align: left; /* deka: updated from right */
 	background: #FFFFAC;
 	float: left;
+	margin-left: 1em; /* deka: updated from 1cm */
+	margin-right: 1%; /* deka: updated from 6cm */
+	
+	/* deka: removed margin-right: 25em in favor of width setting */
+	width: 25%; /* deka: added */
+	max-width: 240px; /* deka: added */
+	min-width: 140px; /* deka: added */
+	
+	padding: 1px 4px 1px 0px; /* deka: added */
+	overflow-x: hidden; /* deka: added */
 }
 
 strong.rightnote {

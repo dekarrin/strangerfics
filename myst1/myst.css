@@ -33,6 +33,27 @@ p.selector {
 	font-family: Verdana;
 }
 
+p.marker-note {
+	font-family: Georgia, serif;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+
+/* deka: added this entire class to use instead of table styling for the completed Marker Switch clue. */
+p.marker-full {
+	text-indent: 0cm;
+	background: #FFFFAC;
+	text-align: center;
+	
+	width: 76%; /* deka: added */
+	max-width: 310px; /* deka: added */
+	min-width: 160px; /* deka: added */
+	
+	padding: 2px 4px; /* deka: added */
+	margin-left: auto;
+	margin-right: auto;
+}
+
 p.regnote {
 	text-indent: 0cm;
 	background: #FFFFAC;
@@ -53,8 +74,8 @@ p.regnote {
 
 p.leftnote {
 	text-indent: 0cm;
-	font-family: "Lucida Handwriting";
-	font-style: italic;
+	/* deka: removed font-family: "Lucida Handwriting" */
+	/* deka: removed font-style: italic */
 	text-align: right;
 	background: #FFFFAC;
 	float: left;
@@ -63,10 +84,11 @@ p.leftnote {
 	
 	/* deka: removed margin-right: 25em in favor of width setting */
 	width: 25%; /* deka: added */
-	max-width: 170px; /* deka: added */ 
+	max-width: 140px; /* deka: added */ 
 	min-width: 110px; /* deka: added */
 	
-	padding: 1px 1px 1px 4px; /* deka: added */
+	padding-left: 4px; /* deka: added */
+	padding-right: 0px; /* deka: added */
 	overflow-x: hidden; /* deka: added */
 }
 
@@ -80,8 +102,8 @@ em.leftnote {
 
 p.rightnote {
 	text-indent: 0cm;
-	font-family: "Lucida Handwriting";
-	font-style: italic;
+	/* deka: removed font-family: "Lucida Handwriting" */
+	/* deka: removed font-style: italic */
 	text-align: left; /* deka: updated from right */
 	background: #FFFFAC;
 	float: left;
@@ -90,10 +112,12 @@ p.rightnote {
 	
 	/* deka: removed margin-right: 25em in favor of width setting */
 	width: 25%; /* deka: added */
-	max-width: 240px; /* deka: added */
+	max-width: 186px; /* deka: added */
 	min-width: 140px; /* deka: added */
 	
-	padding: 1px 4px 1px 0px; /* deka: added */
+	
+	padding-right: 0px; /* deka: added */
+	padding-right: 4px; /* deka: added */
 	overflow-x: hidden; /* deka: added */
 }
 

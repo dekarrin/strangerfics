@@ -1,0 +1,21 @@
+html, body {
+	font-family: "Bookman Old Style";
+	color: black;
+	background: url("paper.gif");
+}
+
+h1, p {
+	font-family: "Bookman Old Style";
+	color: black;
+}
+
+.note {
+	background: yellow;
+	font-style: italic;
+	padding-bottom: 0;
+	padding-top: 0;
+	margin-left: 5em;
+	margin-right: 5em;
+	border-width: 0;
+	border-style: none;
+}

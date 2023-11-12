@@ -19,3 +19,26 @@ h1, p {
 	border-width: 0;
 	border-style: none;
 }
+
+/* deka: added this class */
+div.centered {
+	text-align: center;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* deka: added this class */
+table.centered {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#number-chart td {
+	background: #00ff00;
+}
+
+/* deka: added this class */
+p.centered {
+	text-align: center;
+}

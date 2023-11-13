@@ -34,10 +34,6 @@ table.centered {
 	margin-right: auto;
 }
 
-#number-chart td {
-	background: #00ff00;
-}
-
 /* deka: added this class */
 p.centered {
 	text-align: center;

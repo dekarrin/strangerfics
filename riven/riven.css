@@ -5,6 +5,20 @@ html, body {
 }
 
 /* deka: added this selector */
+p.nav {
+	text-indent: 0cm;
+	margin: 0;
+	font-size: smaller;
+}
+
+/* deka: added this selector */
+p.nav-bot {
+	text-indent: 0cm;
+	margin: 0;
+	text-align: center;
+}
+
+/* deka: added this selector */
 body {
 	max-width: 1000px; /* deka: added */
 	margin: 0 auto; /* deka: added */

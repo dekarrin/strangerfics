@@ -1,4 +1,4 @@
-html, body {
+html /* deka: removed redundant body selector */ {
 	font-family: "Bookman Old Style";
 	color: black;
 	background: url("paper.gif");
@@ -28,6 +28,24 @@ body {
 h1, p {
 	font-family: "Bookman Old Style";
 	color: black;
+}
+
+/* deka: added dl, dt, dd entries to make definition lists stand out from main body text. */
+dl {
+	margin: 0.1em 3.0em 0.1em 1.5em;
+	font-size: 0.95em;
+}
+
+/* deka: added this selector */
+dt {
+	margin-top: 0.5em;
+	text-decoration: underline;
+}
+
+/* deka: added this selector */
+dd {
+	margin-left: 1.5em;
+	font-style: italic;
 }
 
 .note {

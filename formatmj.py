@@ -77,8 +77,8 @@ def format_tag_open(t):
             at_val = ' '.join(at_val)
         tstr += ' ' + at + '="' + at_val + '"'
     
-    if t.isSelfClosing:
-        tstr += '/'
+    #if t.isSelfClosing:
+    #    tstr += '/'
     
     tstr += '>'
     return tstr
@@ -115,7 +115,8 @@ def format_text(wrap_width, level, tab_seq, tab_len, nodes, outfile):
         print(tag_tabs, end='', file=outfile)
         print(tag_open, file=outfile)
             
-        if elem.name == 'blockquote':
+        nestables = ['blockquote', 'dl', 'div', 'center', 'small']
+        if elem.name in nestables:
             # these elements can themselves contain p tags in myst journals;
             # recurse with tab level incremented.
             inner_elems = elem.contents

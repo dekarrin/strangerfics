@@ -39,13 +39,18 @@ dl {
 /* deka: added this selector */
 dt {
 	margin-top: 0.5em;
-	text-decoration: underline;
+	font-weight: bold;
 }
 
 /* deka: added this selector */
 dd {
 	margin-left: 1.5em;
 	font-style: italic;
+}
+
+/* deka: added */
+img.middle {
+	vertical-align: middle;
 }
 
 .note {

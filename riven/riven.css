@@ -54,14 +54,17 @@ img.middle {
 }
 
 .note {
-	background: yellow;
+	background: #FFFFAC; /* deka: changed from 'yellow' */
 	font-style: italic;
-	padding-bottom: 0;
-	padding-top: 0;
-	margin-left: 5em;
-	margin-right: 5em;
-	border-width: 0;
-	border-style: none;
+	font-family: "Lucida Handwriting"; /* deka: added */
+	
+	padding: 1px 4px; /* deka: replaced padding-top: 0 and padding-bottom: 0 */
+	margin-left: auto; /* deka: updated from 5em */
+	margin-right: auto; /* deka: updated from 5em */
+	/* deka: removed border-style and border-width attributes, both of which were set to defaults */
+	width: 76%; /* deka: added */
+	max-width: 480px; /* deka: added */
+	min-width: 160px; /* deka: added */
 }
 
 /* deka: added this class */

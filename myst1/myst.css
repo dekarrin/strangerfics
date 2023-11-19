@@ -2,7 +2,6 @@ body {
 	background: url("../background.jpg");
 }
 
-/* identical to same in titlepg.css */
 h1 {
 	font-family: "Lucida Handwriting";
 	font-style: italic;
@@ -11,7 +10,14 @@ h1 {
 	text-align: center;
 }
 
-/* identical to same in titlepg.css */
+/* consolidated from titlepg.css */
+h2, h3 {
+	font-family: "Lucida Handwriting";
+	font-style: italic;
+	color: gray;
+	font-size: 16pt;
+}
+
 h1.author {
 	font-size: 24pt;
 	font-weight: normal;
@@ -20,6 +26,32 @@ h1.author {
 /* deka: added this to make blockquotes be indented more like they were in old versions of IE. */
 blockquote {
 	margin: 1.0cm 1.5cm;
+}
+
+/* consolidated from titlepg.css */
+li {
+	font-family: "Arial";
+}
+
+/* consolidated from titlepg.css */
+a {
+	font-weight: bold;
+}
+
+p {
+	text-indent: 2.35em;
+}
+
+tr {
+	border: thin solid #FFFFAC;
+}
+
+td {
+	border: thin solid #FFFFAC;
+}
+
+th {
+	text-decoration: underline;
 }
 
 /* deka: removed p.selector */
@@ -120,15 +152,15 @@ em.rightnote {
 	background: #FFFFAC;
 }
 
-p {
-	text-indent: 2.35em;
-}
-
 p.nav {
 	text-indent: 0cm;
 	margin-top: auto;
 	margin-bottom: 2ex;
 	font-size: small;
+}
+
+p.nav a {
+	font-weight: inherit;
 }
 
 /* deka: added entire .center-margins attributes */
@@ -154,16 +186,4 @@ table.chart {
 	text-align: left;
 	float: left;
 	margin-right: 1em;
-}
-
-tr {
-	border: thin solid #FFFFAC;
-}
-
-td {
-	border: thin solid #FFFFAC;
-}
-
-th {
-	text-decoration: underline;
 }

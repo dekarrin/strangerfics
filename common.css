@@ -1,11 +1,12 @@
-/* common.css - Shared stylesheet with styles used across all pages on the    *
- * website. This file was added to optimize and centralize site CSS; while it *
- * did not exist in the original site, its contents, unless otherwise noted,  *
- * did.                                                                       */
+/* common.css - Shared stylesheet with styles used across all pages on the site. */
 
-/* deka: entirely added this declaration. */
 body {
 	max-width: 1000px;
 	margin: 0 auto;
 	padding: 0 8px;
+	font-family: "Bookman Old Style", Bookman, "Goudy Old Style", "Calisto MT", Garamond, "Hoefler Text", "Bitstream Charter", Georgia, serif;
+}
+
+p {
+	margin-top: 0;
 }

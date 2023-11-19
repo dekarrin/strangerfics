@@ -1,9 +1,9 @@
 body {
 	background: url("../background.jpg");
-	font-family: "Bookman Old Style";
 }
 
-h1 { 
+/* identical to same in titlepg.css */
+h1 {
 	font-family: "Lucida Handwriting";
 	font-style: italic;
 	color: gray;
@@ -11,13 +11,10 @@ h1 {
 	text-align: center;
 }
 
-h2 {
-	font-family: "Lucida Handwriting";
-	font-style: italic;
-	color: gray;
-	font-size: 25pt;
-	text-align: center;
-	text-decoration: none;
+/* identical to same in titlepg.css */
+h1.author {
+	font-size: 24pt;
+	font-weight: normal;
 }
 
 /* deka: added this to make blockquotes be indented more like they were in old versions of IE. */
@@ -124,8 +121,7 @@ em.rightnote {
 }
 
 p {
-	text-indent: 1cm;
-	margin-top: 0;
+	text-indent: 2.35em;
 }
 
 p.nav {

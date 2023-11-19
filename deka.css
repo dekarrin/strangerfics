@@ -2,6 +2,10 @@
 	font-size: small;
 }
 
+.restorefooter a {
+	font-weight: normal;
+}
+
 .restorefooter a:visited {
 	color: #0000ff;
 }

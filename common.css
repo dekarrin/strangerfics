@@ -1,1 +1,11 @@
-/* shared stylesheet with styles used across all pages on the website */
+/* common.css - Shared stylesheet with styles used across all pages on the    *
+ * website. This file was added to optimize and centralize site CSS; while it *
+ * did not exist in the original site, its contents, unless otherwise noted,  *
+ * did.                                                                       */
+
+/* deka: entirely added this declaration. */
+body {
+	max-width: 1000px;
+	margin: 0 auto;
+	padding: 0 8px;
+}

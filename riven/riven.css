@@ -18,13 +18,6 @@ p.nav-bot {
 	text-align: center;
 }
 
-/* deka: added this selector */
-body {
-	max-width: 1000px; /* deka: added */
-	margin: 0 auto; /* deka: added */
-	padding: 0 8px; /* deka: added */
-}
-
 h1, p {
 	font-family: "Bookman Old Style";
 	color: black;

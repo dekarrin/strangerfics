@@ -1,7 +1,4 @@
 body {
 	background: url("../background.jpg"); /* deka: changed from bkgrnd.jpg, which is not archived */
 	font-family: "Bookman Old Style"; /* deka: added */
-	max-width: 1000px; /* deka: added */
-	margin: 0 auto; /* deka: added */
-	padding: 0 8px; /* deka: added */
 }

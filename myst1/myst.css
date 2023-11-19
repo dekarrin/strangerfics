@@ -25,10 +25,7 @@ blockquote {
 	margin: 1.0cm 1.5cm;
 }
 
-p.selector {
-	text-align: center;
-	font-family: Verdana;
-}
+/* deka: removed p.selector */
 
 p.marker-note {
 	font-family: Georgia, serif;

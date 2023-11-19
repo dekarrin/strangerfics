@@ -53,10 +53,7 @@ a:visited
 	color: #FF0000;
 }
 
-p.selector {
-	text-align: center;
-	font-family: "Verdana";
-}
+/* deka: removed p.selector */
 
 p {
 	text-indent: 1cm;

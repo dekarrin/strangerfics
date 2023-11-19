@@ -25,7 +25,7 @@ h1.author {
 
 /* deka: added this to make blockquotes be indented more like they were in old versions of IE. */
 blockquote {
-	margin: 1.0cm 1.5cm;
+	margin: 2.35em 3.5em;
 }
 
 /* consolidated from titlepg.css */
